@@ -68,7 +68,7 @@ class syntax_plugin_styler_verse extends DokuWiki_Syntax_Plugin
      * @param $handler Doku_Handler Reference to the Doku_Handler object.
      * @return array
      */
-    public function handle($match, $state, $pos, Doku_Handler  $handler)
+    public function handle($match, $state, $pos, Doku_Handler $handler)
     {
         global $conf;
         switch ($state) {
