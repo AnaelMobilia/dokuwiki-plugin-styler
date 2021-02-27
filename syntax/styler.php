@@ -23,23 +23,6 @@ require_once(DOKU_PLUGIN . 'syntax.php');
  */
 class syntax_plugin_styler_styler extends DokuWiki_Syntax_Plugin
 {
-
-    /**
-     * return some info
-     */
-    public function getInfo()
-    {
-        return array(
-            'author' => 'Ivan A-R',
-            'email' => 'ivan@iar.spb.ru',
-            'date' => '2007-07-23',
-            'name' => 'Styler plugin',
-            'desc' => 'More formatings: quote, epigraph, style [left, right, center, justify, float-left, float-right, box, background]',
-            'url' => 'http://iar.spb.ru/en/projects/doku/styler',
-            'version' => '0.2',
-        );
-    }
-
     public function getType()
     {
         return 'container';

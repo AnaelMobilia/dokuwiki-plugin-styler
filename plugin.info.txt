@@ -1,0 +1,7 @@
+base   styler
+author Ivan A-R
+email  ivan@iar.spb.ru
+date   2007-07-23
+name   Styler plugin
+desc   More formatting: verse, quote, epigraph, style [left, right, center, justify, float-left, float-right, box, background]
+url    https://www.dokuwiki.org/plugin:styler
