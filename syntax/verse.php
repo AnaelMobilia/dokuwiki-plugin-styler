@@ -104,7 +104,8 @@ class syntax_plugin_styler_verse extends DokuWiki_Syntax_Plugin
                     $renderer->doc .= '<div class="verse' . $class . '">' . "\n" . '<pre>';
                     break;
                 case DOKU_LEXER_UNMATCHED:
-                    $renderer->doc .= preg_replace("/\b([A-H][#]?[m]?[75]?)\b/m", "<span>\\1</span>", $data[0]);
+                    $result = preg_replace("/\b([A-H][#]?[m]?[75]?)\b/m", "<span>\\1</span>", $data[0]);
+                    $renderer->doc .= htmlspecialchars($result);
                     break;
                 case DOKU_LEXER_EXIT:
                     $renderer->doc .= "</pre>\n</div>";// "</p>" and "\n</p>" is hack

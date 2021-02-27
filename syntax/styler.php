@@ -120,7 +120,7 @@ class syntax_plugin_styler_styler extends DokuWiki_Syntax_Plugin
                     }
                     break;
                 case DOKU_LEXER_UNMATCHED:
-                    $renderer->doc .= $data[0];
+                    $renderer->doc .= htmlspecialchars($data[0]);
                     break;
                 case DOKU_LEXER_EXIT:
                     $renderer->doc .= "</div>\n<p>"; // "</p>" and "\n</p>" is hack
