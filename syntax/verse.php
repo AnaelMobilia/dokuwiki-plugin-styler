@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin Style/Verse: More styles for dokuwiki
  * Format: see README
@@ -9,35 +10,43 @@
  * @version    0.2
  */
 
-if (!defined('DOKU_INC')) {
-    define('DOKU_INC', realpath(dirname(__FILE__) . '/../../') . '/');
-}
-if (!defined('DOKU_PLUGIN')) {
-    define('DOKU_PLUGIN', DOKU_INC . 'lib/plugins/');
-}
-require_once(DOKU_PLUGIN . 'syntax.php');
-
 /**
  * All DokuWiki plugins to extend the parser/rendering mechanism
  * need to inherit from this class
  */
 class syntax_plugin_styler_verse extends DokuWiki_Syntax_Plugin
 {
+    /**
+     * Get the type of syntax this plugin defines.
+     * @return string
+     */
     public function getType()
     {
         return 'protected';
     }
 
+    /**
+     * Define how this plugin is handled regarding paragraphs.
+     * @return string
+     */
     public function getPType()
     {
         return 'block';
     }
 
+    /**
+     * Where to sort in?
+     * @return int
+     */
     public function getSort()
     {
         return 205;
     }
 
+    /**
+     * Connect lookup pattern to lexer.
+     * @param $mode String The desired rendermode.
+     */
     public function connectTo($mode)
     {
         $this->Lexer->addEntryPattern('<verse.*?>(?=.*?\x3C/verse\x3E)', $mode, 'plugin_styler_verse');
@@ -48,9 +57,13 @@ class syntax_plugin_styler_verse extends DokuWiki_Syntax_Plugin
         $this->Lexer->addExitPattern('</verse>', 'plugin_styler_verse');
     }
 
-
     /**
-     * Handle the match
+     * Handler to prepare matched data for the rendering process.
+     * @param $match String The text matched by the patterns.
+     * @param $state Integer The lexer state for the match.
+     * @param $pos Integer The character position of the matched text.
+     * @param $handler Object Reference to the Doku_Handler object.
+     * @return array
      */
     public function handle($match, $state, $pos, &$handler)
     {
@@ -73,7 +86,11 @@ class syntax_plugin_styler_verse extends DokuWiki_Syntax_Plugin
     }
 
     /**
-     * Create output
+     * Handle the actual output creation.
+     * @param $mode String The output format to generate.
+     * @param $renderer Object A reference to the renderer object.
+     * @param $data Array The data created by the handle() method.
+     * @return bool
      */
     public function render($mode, &$renderer, $data)
     {
