@@ -32,4 +32,4 @@ jobs:
           tools: cs2pr, phpcs
 
       - name: Run phpcs
-        run: phpcs -q --standard=PSR12 --report=checkstyle src | cs2pr
+        run: phpcs -q --standard=PSR12 --report=checkstyle $GITHUB_WORKSPACE | cs2pr
