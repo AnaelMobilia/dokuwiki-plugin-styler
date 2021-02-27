@@ -63,6 +63,9 @@ class syntax_plugin_styler_styler extends DokuWiki_Syntax_Plugin
         $this->Lexer->addEntryPattern('<epigraph.*?>(?=.*?\x3C/epigraph\x3E)', $mode, 'plugin_styler_styler');
     }
 
+    /**
+     * Second pattern to say when the parser is leaving your syntax mode.
+     */
     public function postConnect()
     {
         $this->Lexer->addExitPattern('</style>', 'plugin_styler_styler');
@@ -76,10 +79,10 @@ class syntax_plugin_styler_styler extends DokuWiki_Syntax_Plugin
      * @param $match String The text matched by the patterns.
      * @param $state Integer The lexer state for the match.
      * @param $pos Integer The character position of the matched text.
-     * @param $handler Object Reference to the Doku_Handler object.
+     * @param $handler Doku_Handler  Reference to the Doku_Handler object.
      * @return array
      */
-    public function handle($match, $state, $pos, &$handler)
+    public function handle($match, $state, $pos, Doku_Handler $handler)
     {
         global $conf;
         switch ($state) {
@@ -102,11 +105,11 @@ class syntax_plugin_styler_styler extends DokuWiki_Syntax_Plugin
     /**
      * Handle the actual output creation.
      * @param $mode String The output format to generate.
-     * @param $renderer Object A reference to the renderer object.
+     * @param $renderer Doku_Renderer A reference to the renderer object.
      * @param $data Array The data created by the handle() method.
      * @return bool
      */
-    public function render($mode, &$renderer, $data)
+    public function render($mode, Doku_Renderer $renderer, $data)
     {
         global $st;
         global $et;
