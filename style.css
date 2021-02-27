@@ -5,7 +5,7 @@ div.styler-box {
 }
 
 div.styler-background {
-    background-color: #ECE8DE
+    background-color: #ECE8DE;
 }
 
 div.styler-float-left {
@@ -69,5 +69,4 @@ div.styler-quote {
     border: 1px dotted #BBAC8C;
     background: #F8F5EE url(images/blockquote.gif) no-repeat 0.3em 0.3em;
     padding: 1em;
-
 }
